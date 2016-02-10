@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
-                System.out.println(selectedFromList);
+                //System.out.println(selectedFromList);
                 Intent intent = new Intent(MainActivity.this, EventActivity.class);
                 intent.putExtra("ITEM_ID", String.valueOf(id));
                 startActivity(intent);

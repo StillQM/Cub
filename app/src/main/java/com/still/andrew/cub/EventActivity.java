@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -23,6 +24,8 @@ import com.firebase.client.FirebaseError;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +38,12 @@ public class EventActivity extends AppCompatActivity {
     Event event;
     Intent intent = getIntent();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_event);
+        final TextView eventTitle = (TextView) findViewById(R.id.title_text);
 
         String newString;
         if(savedInstanceState == null) {
@@ -62,7 +67,7 @@ public class EventActivity extends AppCompatActivity {
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         event = new Event((String)dataSnapshot.child("eventName").getValue());
                         System.out.println(event.getEventName());
-
+                        eventTitle.setText(event.getEventName());
                     }
 
                     @Override
