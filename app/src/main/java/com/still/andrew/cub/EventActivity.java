@@ -43,6 +43,7 @@ public class EventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+
         final TextView eventTitle = (TextView) findViewById(R.id.title_text);
 
         final String newString;
@@ -66,6 +67,9 @@ public class EventActivity extends AppCompatActivity {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         //event = new Event((String)dataSnapshot.child("eventName").getValue());
+                        event = dataSnapshot.getValue(Event.class);
+                        System.out.println(event.getEventName() + " Debug");
+                        eventTitle.setText(event.getEventName());
 
 
                     }
@@ -73,9 +77,6 @@ public class EventActivity extends AppCompatActivity {
                     @Override
                     public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                         //System.out.println(dataSnapshot.getValue());
-                        event = new Event((String)dataSnapshot.child("eventName").getValue());
-                        System.out.println(event.getEventName() + " Debug");
-                        eventTitle.setText(event.getEventName());
 
                     }
 
