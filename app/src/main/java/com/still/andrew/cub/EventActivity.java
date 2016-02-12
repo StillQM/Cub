@@ -45,7 +45,7 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
         final TextView eventTitle = (TextView) findViewById(R.id.title_text);
 
-        String newString;
+        final String newString;
         if(savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -57,7 +57,7 @@ public class EventActivity extends AppCompatActivity {
             newString = (String) savedInstanceState.getSerializable("ITEM_ID");
         }
 
-        firebaseURL = ("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10/" + newString);
+        firebaseURL = ("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10/1");
 
 
 
@@ -65,13 +65,17 @@ public class EventActivity extends AppCompatActivity {
                 .addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        event = new Event((String)dataSnapshot.child("eventName").getValue());
-                        System.out.println(event.getEventName());
-                        eventTitle.setText(event.getEventName());
+                        //event = new Event((String)dataSnapshot.child("eventName").getValue());
+
+
                     }
 
                     @Override
                     public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                        //System.out.println(dataSnapshot.getValue());
+                        event = new Event((String)dataSnapshot.child("eventName").getValue());
+                        System.out.println(event.getEventName() + " Debug");
+                        eventTitle.setText(event.getEventName());
 
                     }
 
@@ -89,7 +93,13 @@ public class EventActivity extends AppCompatActivity {
                     public void onCancelled(FirebaseError firebaseError) {
 
                     }
+
+
+
+
                 });
+
+
 
 
 

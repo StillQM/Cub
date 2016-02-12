@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
                 //System.out.println(selectedFromList);
                 Intent intent = new Intent(MainActivity.this, EventActivity.class);
-                intent.putExtra("ITEM_ID", String.valueOf(id));
+                intent.putExtra("ITEM_ID", String.valueOf(id + 1));
                 startActivity(intent);
             }
         });
