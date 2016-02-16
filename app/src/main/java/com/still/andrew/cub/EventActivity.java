@@ -21,6 +21,7 @@ import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -45,6 +46,7 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
 
         final TextView eventTitle = (TextView) findViewById(R.id.title_text);
+        final TextView eventDescription = (TextView) findViewById(R.id.event_description);
 
         final String newString;
         if(savedInstanceState == null) {
@@ -58,17 +60,44 @@ public class EventActivity extends AppCompatActivity {
             newString = (String) savedInstanceState.getSerializable("ITEM_ID");
         }
 
-        firebaseURL = ("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10/1");
+        firebaseURL = ("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10/" );
 
 
 
         new Firebase(firebaseURL)
-                .addChildEventListener(new ChildEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        //event = new Event((String)dataSnapshot.child("eventName").getValue());
+                    public void onDataChange(DataSnapshot snapshot){
+                        System.out.println(snapshot.getValue());
+
+                        for(DataSnapshot eventSnapshot: snapshot.getChildren()){
+                            event = eventSnapshot.getValue(Event.class);
+                            System.out.println(event.toString());
+                            System.out.println(event.getEventID());
+                            System.out.println(newString);
+                            if(event.getEventID().equals(newString)){
+                                eventTitle.setText(event.getEventName());
+                                eventDescription.setText(event.getEventDescription());
+                                return;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError){
+
+
+                    }
+
+                    /*public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        System.out.println(dataSnapshot.getValue());
                         event = dataSnapshot.getValue(Event.class);
-                        System.out.println(event.getEventName() + " Debug");
+                        //event = new Event((String)dataSnapshot.child("eventName").getValue());
+                        //for(DataSnapshot eventSnapshot : dataSnapshot.getChildren()){
+                        //    event = eventSnapshot.getValue(Event.class);
+                        //}
+                        //event = dataSnapshot.getValue(Event.class);
+                        //System.out.println(" Debug: " + dataSnapshot.getValue());
                         eventTitle.setText(event.getEventName());
 
 
@@ -93,7 +122,7 @@ public class EventActivity extends AppCompatActivity {
                     @Override
                     public void onCancelled(FirebaseError firebaseError) {
 
-                    }
+                    }*/
 
 
 

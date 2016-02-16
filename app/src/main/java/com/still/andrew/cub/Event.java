@@ -5,14 +5,24 @@ package com.still.andrew.cub;
  */
 public class Event {
 
+    private String eventID;
     private String eventName;
+
+
+
+    private String eventDescription;
+
 
     public Event(){
 
     }
 
-    public Event(String eventName){
+    public Event(String eventDescription, String eventID, String eventName){
+        this.eventID = eventID;
         this.eventName = eventName;
+        this.eventDescription = eventDescription;
+        //System.out.println(this.eventName);
+
     }
 
 
@@ -20,7 +30,19 @@ public class Event {
         return eventName;
     }
 
+    public String getEventID() {
+        return eventID;
+    }
 
+    public String getEventDescription() {
+        return eventDescription;
+    }
+
+    @Override
+    public String toString(){
+        String theString = (getEventID() + getEventName());
+        return theString;
+    }
 
 
 }
