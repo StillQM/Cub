@@ -2,17 +2,21 @@ package com.still.andrew.cub;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -45,20 +49,17 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
+
+
         final TextView eventTitle = (TextView) findViewById(R.id.title_text);
         final TextView eventDescription = (TextView) findViewById(R.id.event_description);
+        final TextView eventVenue = (TextView) findViewById(R.id.event_venue);
+        final TextView eventDate = (TextView) findViewById(R.id.event_date);
+        final TextView eventTime = (TextView) findViewById(R.id.event_time);
+        final ImageView eventPhoto = (ImageView) findViewById(R.id.event_photo);
 
-        final String newString;
-        if(savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                newString = null;
-            } else {
-                newString = extras.getString(("ITEM_ID"));
-            }
-        } else {
-            newString = (String) savedInstanceState.getSerializable("ITEM_ID");
-        }
+        final String eventID = getPassedData(savedInstanceState);
+
 
         firebaseURL = ("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10/" );
 
@@ -74,10 +75,15 @@ public class EventActivity extends AppCompatActivity {
                             event = eventSnapshot.getValue(Event.class);
                             System.out.println(event.toString());
                             System.out.println(event.getEventID());
-                            System.out.println(newString);
-                            if(event.getEventID().equals(newString)){
+                            System.out.println(eventID);
+                            if(event.getEventID().equals(eventID)){
+                                //myToolbar.setTitle(event.getEventName());
                                 eventTitle.setText(event.getEventName());
+                                eventDate.setText(event.getEventDate());
+                                eventTime.setText(event.getEventTime());
+                                eventVenue.setText(event.getEventVenue());
                                 eventDescription.setText(event.getEventDescription());
+                                eventPhoto.setImageBitmap(base64ToBitmap(event.getEventPhoto()));
                                 return;
                             }
                         }
@@ -89,44 +95,6 @@ public class EventActivity extends AppCompatActivity {
 
                     }
 
-                    /*public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        System.out.println(dataSnapshot.getValue());
-                        event = dataSnapshot.getValue(Event.class);
-                        //event = new Event((String)dataSnapshot.child("eventName").getValue());
-                        //for(DataSnapshot eventSnapshot : dataSnapshot.getChildren()){
-                        //    event = eventSnapshot.getValue(Event.class);
-                        //}
-                        //event = dataSnapshot.getValue(Event.class);
-                        //System.out.println(" Debug: " + dataSnapshot.getValue());
-                        eventTitle.setText(event.getEventName());
-
-
-                    }
-
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                        //System.out.println(dataSnapshot.getValue());
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-
-                    }*/
-
-
-
-
                 });
 
 
@@ -136,5 +104,25 @@ public class EventActivity extends AppCompatActivity {
 
 
     }
+
+    public String getPassedData(Bundle savedInstanceState){
+        if(savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                return null;
+            } else {
+                return extras.getString(("ITEM_ID"));
+            }
+        } else {
+            return (String) savedInstanceState.getSerializable("ITEM_ID");
+        }
+    }
+
+    public Bitmap base64ToBitmap(String b64) {
+        byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+    }
+
+
 
 }
