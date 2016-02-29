@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -47,18 +48,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolBar);
+
         //Get ListView object
         final ListView listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
-                //System.out.println(selectedFromList);
                 Intent intent = new Intent(MainActivity.this, EventActivity.class);
                 intent.putExtra("ITEM_ID", String.valueOf(id + 1));
                 startActivity(intent);
             }
         });
+
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
+        ArrayAdapter<String>spinnerAdapter;
+        List<String> spinnerList;
+
+        spinnerList = new ArrayList<String>();
+        spinnerList.add("Events");
+        spinnerList.add("Buildings");
+        spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, spinnerList);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spinner.getSelectedItem().toString() == "Buildings") {
+                    Intent intent = new Intent(MainActivity.this, BuildingListActivity.class);
+                    startActivity(intent);
+                }
+                if (spinner.getSelectedItem().toString() == "Events") {
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
 
 
@@ -68,8 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Create new adapter
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
-        //final SimpleAdapter adapter = new SimpleAdapter(this, data, android.R.layout.simple_list_item_2, new String[] {"title", "date"},
-        //                                                    new int[] {android.R.id.text1, android.R.id.text2});
+
 
         //Assign adapter
         listView.setAdapter(adapter);

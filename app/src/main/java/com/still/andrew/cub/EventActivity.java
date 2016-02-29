@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
@@ -49,6 +50,11 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
+        Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
 
         final TextView eventTitle = (TextView) findViewById(R.id.title_text);
@@ -77,8 +83,8 @@ public class EventActivity extends AppCompatActivity {
                             System.out.println(event.getEventID());
                             System.out.println(eventID);
                             if(event.getEventID().equals(eventID)){
-                                //myToolbar.setTitle(event.getEventName());
-                                eventTitle.setText(event.getEventName());
+                                getSupportActionBar().setTitle(event.getEventName());
+                                //eventTitle.setText(event.getEventName());
                                 eventDate.setText(event.getEventDate());
                                 eventTime.setText(event.getEventTime());
                                 eventVenue.setText(event.getEventVenue());
@@ -122,6 +128,8 @@ public class EventActivity extends AppCompatActivity {
         byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
     }
+
+
 
 
 
