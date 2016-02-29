@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //<editor-fold desc="Spinner">
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
         ArrayAdapter<String>spinnerAdapter;
         List<String> spinnerList;
@@ -91,14 +93,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
+        //</editor-fold>
 
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-
-
 
         //Create new adapter
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
@@ -130,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Firebase ref = new Firebase("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10");
+        final Firebase ref = new Firebase("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10");
                 ref.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -169,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
 

@@ -50,6 +50,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>
 
+        <activity
+            android:name=".BuildingActivity"
+            android:label="Buildings"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"/>
+
     </application>
 
 </manifest>

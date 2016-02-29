@@ -46,7 +46,7 @@ public class BuildingListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
-                Intent intent = new Intent(BuildingListActivity.this, EventActivity.class);
+                Intent intent = new Intent(BuildingListActivity.this, BuildingActivity.class);
                 intent.putExtra("ITEM_ID", String.valueOf(id + 1));
                 startActivity(intent);
             }
@@ -79,8 +79,8 @@ public class BuildingListActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
-        */
+        });*/
+
 
 
 
