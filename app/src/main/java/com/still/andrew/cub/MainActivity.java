@@ -51,18 +51,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
 
-        //Get ListView object
+        //<editor-fold desc="Listview with click listener">
         final ListView listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
                 Intent intent = new Intent(MainActivity.this, EventActivity.class);
-                intent.putExtra("ITEM_ID", String.valueOf(id + 1));
+                intent.putExtra("selectedEventName", selectedFromList);
                 startActivity(intent);
             }
         });
-
+        //</editor-fold>
 
         //<editor-fold desc="Spinner">
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //</editor-fold>
 
+        //<editor-fold desc="Adapter and list for event List View">
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
         //Create new adapter
@@ -103,10 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Assign adapter
         listView.setAdapter(adapter);
+        //</editor-fold>
 
-        //Use firebase
-        Firebase.setAndroidContext(this);
-
+        //<editor-fold desc="List Searcher">
         //Searcher EditText
         eventSearch = (EditText) findViewById(R.id.eventSearch);
         eventSearch.addTextChangedListener(new TextWatcher() {
@@ -125,6 +125,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //</editor-fold>
+
+        //<editor-fold desc="Firebase declaration and methods">
+        //Use firebase
+        Firebase.setAndroidContext(this);
 
 
         final Firebase ref = new Firebase("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10");
@@ -166,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //</editor-fold>
 
 
 

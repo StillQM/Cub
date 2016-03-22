@@ -1,5 +1,7 @@
 package com.still.andrew.cub;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by aes5638 on 2/29/16.
  */
@@ -14,7 +16,7 @@ public class Building {
 
     }
 
-    public Building(String buildingArea, String buildingCoordinates, String buildingID, String buildingName) {
+    public Building(String buildingArea,String buildingCoordinates, String buildingID, String buildingName) {
         this.buildingArea = buildingArea;
         this.buildingCoordinates = buildingCoordinates;
         this.buildingID = buildingID;

@@ -1,2 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appindexing-8.4.0_badff6b07c59b97385202569c0c53f8fbe87a9c7.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-8.4.0_d276f98be3e3f4241ef7f10b0fce545289511326.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-nearby-8.4.0_461c926004334017e976c2fc08243e60b22de6f8.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-measurement-8.4.0_31d04555f6d8a49bdf5e37913c35ff48c8994a98.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-identity-8.4.0_f703cebc9e269c9bdf246b21bb72b1408f6cbf24.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-safetynet-8.4.0_78eb8d65e5babf4834900ac134f69115da8a9198.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-wearable-8.4.0_89e8cb16d8920e9eef486c41c172347d261cca2a.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0_0a98c45cb6fc408a5b10548877c349ce528ab693.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-mediarouter-v7-23.0.0_0fe5318d12b384a042f2d76b4dd339b83f7504c4.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-8.4.0_9efb912a9d10e7a0e4535bff7f6b3487960b4e9e.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2_babee0e9a3f40ca51962b509277ee16f458410d6.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-8.4.0_16fa68a1b250355373a81ae04dafa6211dbc4a1a.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2_def2ef4a26c89ca8d646d2e9f232e6df591a9c30.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-8.4.0_2f6ebf05019efbec4f504c6e7a6f78a019ed2549.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.0_ea57ecdb36cd7fcd7b3829170cc3f23b3be7a6da.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-plus-8.4.0_8d68908d5a06cb738efb2a78afe8be07e3689136.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-cast-8.4.0_810d2d5f3bda3cb355f39d70a4bb0efb212cc9a3.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.0/support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.0_25411e651c106ae75087b771ebbf1525c6d86b4e.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/design/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1aa5b025efe97f5006f5be16d6ca67c6c3c0c0d8">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.2.0_ef71ffff74d86edeb1b123aecc3ddc010fa6a976.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-8.4.0_9676e92161f80e44e8da7c05b049d384dc6f2984.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-8.4.0_003ef5743442843675af7290abcf04c281b5d29f.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.0_8c608dad21e256337347531f44af8289be694bed.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-wallet-8.4.0_7c2d3b050be31c91fe9b96df2303487976af0cf7.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appinvite-8.4.0_9ff30f8125ffdb9dc3fdb1266feed04ea36c653f.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d4c936aa8c7d2522c82e3f1829c791d9e367f009">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.2.0_3dbd321611973b5a6b86915ebdbf4100e6ee9f40.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-vision-8.4.0_63f09b434b334a730d07b9e0c680d4216da8675f.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-fitness-8.4.0_3afbfa73b8b86508915a9f779fe1c28dced090ad.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.0_c0d55a362012861d2d05a4601855fd7f6bebaa87.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-panorama-8.4.0_f1622d2180ad1bd1e3aee375434fb24a9d1d5038.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.0_a28df90ac3d52a1953b9d8584d60f4388d26cc55.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.1/4d53b7d6983247af02b8fe7e4228fff555a5e828/firebase-client-jvm-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4d53b7d6983247af02b8fe7e4228fff555a5e828">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.3.1_1e28949f463c389623bed4860b2ad4a209e0b845.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-analytics-8.4.0_6f81696e0148bc71273a6078c155805cfbee80b6.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_dad0ab93ca76adbea0a8dab2c6b1efa6db95fb3e.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/tubesock-0.0.11_0d0066364fed4953a51b986e9aa796efe4bdaf6e.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.1/be29b24233711c419ce935aa0a1b12ebc49d1c9a/firebase-client-android-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.3.1_4ae0afb3381186f7270914a9adf113443e332a3e.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-8.4.0_fad459c63a46bb5feb3616e17106fc39bb48648f.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-games-8.4.0_feab933e8ee064c29495051724cd1e6846a53d10.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/StudioProjects/Cub/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-drive-8.4.0_056bf386f8dad6e11736682ace1866d3feab4e43.jar" />
+    </item>
+    <item
+        jar="/home/aes5638/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/home/aes5638/StudioProjects/Cub/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2_30f2a551a3961358259d4120f91801cdb05be065.jar" />
+    </item>
+
+</items>

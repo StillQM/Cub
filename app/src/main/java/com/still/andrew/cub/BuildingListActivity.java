@@ -40,55 +40,26 @@ public class BuildingListActivity extends AppCompatActivity {
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
 
+        //<editor-fold desc="Listview and click listener">
         //Get ListView object
         final ListView listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
+                System.out.println(selectedFromList);
                 Intent intent = new Intent(BuildingListActivity.this, BuildingActivity.class);
-                intent.putExtra("ITEM_ID", String.valueOf(id + 1));
+                //intent.putExtra("ITEM_ID", String.valueOf(id + 1));
+                intent.putExtra("selectedBuildingName", selectedFromList);
                 startActivity(intent);
             }
         });
+        //</editor-fold>
 
-        /*final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
-        ArrayAdapter<String>spinnerAdapter;
-        List<String> spinnerList;
-
-        spinnerList = new ArrayList<String>();
-        spinnerList.add("Events");
-        spinnerList.add("Buildings");
-        spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, spinnerList);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(spinnerAdapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spinner.getSelectedItem().toString() == "Events") {
-                    Intent intent = new Intent(BuildingListActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-                if (spinner.getSelectedItem().toString() == "Buildings") {
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
-
-
-
-
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-
+        //<editor-fold desc="List searcher">
         final EditText buildingSearch = (EditText) findViewById(R.id.buildingSearch);
 
-
+        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
         //Create new adapter
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
@@ -97,8 +68,8 @@ public class BuildingListActivity extends AppCompatActivity {
         //Assign adapter
         listView.setAdapter(adapter);
 
-        //Use firebase
-        Firebase.setAndroidContext(this);
+
+
 
         //Searcher EditText
 
@@ -118,7 +89,11 @@ public class BuildingListActivity extends AppCompatActivity {
 
             }
         });
+        //</editor-fold>
 
+        //<editor-fold desc="Firebase">
+        //Use firebase
+        Firebase.setAndroidContext(this);
 
         Firebase ref = new Firebase("https://glaring-heat-9011.firebaseio.com/building");
         ref.addChildEventListener(new ChildEventListener() {
@@ -160,7 +135,7 @@ public class BuildingListActivity extends AppCompatActivity {
             }
         });
 
-
+        //</editor-fold>
 
 
 

@@ -49,27 +49,26 @@ public class EventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+        final String selectedEventName = getPassedData(savedInstanceState);
 
+        //<editor-fold desc="Tooldbar">
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //</editor-fold>
 
-
-
+        //<editor-fold desc="Init XML Componenets">
         final TextView eventTitle = (TextView) findViewById(R.id.title_text);
         final TextView eventDescription = (TextView) findViewById(R.id.event_description);
         final TextView eventVenue = (TextView) findViewById(R.id.event_venue);
         final TextView eventDate = (TextView) findViewById(R.id.event_date);
         final TextView eventTime = (TextView) findViewById(R.id.event_time);
         final ImageView eventPhoto = (ImageView) findViewById(R.id.event_photo);
+        //</editor-fold>
 
-        final String eventID = getPassedData(savedInstanceState);
-
-
+        //<editor-fold desc="Firebase">
         firebaseURL = ("https://glaring-heat-9011.firebaseio.com/eventItems/February2016/10/" );
-
-
 
         new Firebase(firebaseURL)
                 .addValueEventListener(new ValueEventListener() {
@@ -79,10 +78,12 @@ public class EventActivity extends AppCompatActivity {
 
                         for(DataSnapshot eventSnapshot: snapshot.getChildren()){
                             event = eventSnapshot.getValue(Event.class);
+                            /*
                             System.out.println(event.toString());
                             System.out.println(event.getEventID());
                             System.out.println(eventID);
-                            if(event.getEventID().equals(eventID)){
+                            */
+                            if(event.getEventName().equals(selectedEventName)){
                                 getSupportActionBar().setTitle(event.getEventName());
                                 //eventTitle.setText(event.getEventName());
                                 eventDate.setText(event.getEventDate());
@@ -103,6 +104,8 @@ public class EventActivity extends AppCompatActivity {
 
                 });
 
+        //</editor-fold>
+
 
 
 
@@ -111,16 +114,18 @@ public class EventActivity extends AppCompatActivity {
 
     }
 
+
+    //<editor-fold desc="External Methods">
     public String getPassedData(Bundle savedInstanceState){
         if(savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
                 return null;
             } else {
-                return extras.getString(("ITEM_ID"));
+                return extras.getString(("selectedEventName"));
             }
         } else {
-            return (String) savedInstanceState.getSerializable("ITEM_ID");
+            return (String) savedInstanceState.getSerializable("selectedEventName");
         }
     }
 
@@ -128,7 +133,7 @@ public class EventActivity extends AppCompatActivity {
         byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
     }
-
+    //</editor-fold>
 
 
 
