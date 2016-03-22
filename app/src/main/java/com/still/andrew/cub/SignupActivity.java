@@ -10,11 +10,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+
+import java.util.Map;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
+    private final String FIREBASE_URL = "https://glaring-heat-9011.firebaseio.com";
 
     @InjectView(R.id.input_name) EditText _nameText;
     @InjectView(R.id.input_email) EditText _emailText;
@@ -22,11 +28,14 @@ public class SignupActivity extends AppCompatActivity {
     @InjectView(R.id.btn_signup) Button _signupButton;
     @InjectView(R.id.link_login) TextView _loginLink;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.inject(this);
+        Firebase.setAndroidContext(this);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +73,28 @@ public class SignupActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
+        System.out.println("Test");
+
         // TODO: Implement your own signup logic here.
+
+        Firebase ref = new Firebase(FIREBASE_URL);
+        ref.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
+            @Override
+            public void onSuccess(Map<String, Object> result) {
+                System.out.println("Successfully created user account with uid: " + result.get("uid"));
+                try {
+                    progressDialog.dismiss();
+                } catch (Exception e) {
+
+                }
+                onSignupSuccess();
+            }
+            @Override
+            public void onError(FirebaseError firebaseError) {
+                System.out.println("Failed");
+                onSignupFailed();
+            }
+        });
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

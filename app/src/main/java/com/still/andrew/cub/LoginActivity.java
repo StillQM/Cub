@@ -17,6 +17,7 @@ import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -25,7 +26,7 @@ import com.firebase.client.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
-    private static final String FIREBASE_URL = "https://glaring-heat-9011.firebaseio.com/user";
+    private static final String FIREBASE_URL = "https://glaring-heat-9011.firebaseio.com";
     private String password;
     private String email;
     private boolean isAuthenticated;
@@ -64,27 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        new Firebase(FIREBASE_URL)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot){
-                        for(DataSnapshot userSnapshot : snapshot.getChildren()) {
-                            String userID = (String) userSnapshot.child("user_id").getValue();
-                            String userName = (String) userSnapshot.child("user_name").getValue();
-                            String userPassword = (String) userSnapshot.child("user_password").getValue();
-                            String userType = (String) userSnapshot.child("user_type").getValue();
-                            User user = new User(userID, userName, userPassword, userType);
-                            user.toString();
-                            System.out.println(userCounter);
-                            userArray[userCounter] = user;
-                            userCounter++;
-                        }
-                    }
 
-                    public void onCancelled(FirebaseError firebaseError){
-
-                    }
-                });
 
     }
 
@@ -108,21 +89,24 @@ public class LoginActivity extends AppCompatActivity {
         password = _passwordText.getText().toString();
 
 
-        for(int i = 0; i < userCounter; i++){
-            if(userArray[i].getUserName().equals(this.email) && userArray[i].getUserPassword().equals(this.password)){
-                isAuthenticated = true;
-                System.out.println(isAuthenticated);
-                onLoginSuccess();
-                return;
-            } else {
-                isAuthenticated = false;
-                System.out.println(isAuthenticated);
-                if(i == userCounter){
-                    onLoginFailed();
-                }
-            }
-        }
+        Firebase ref = new Firebase(FIREBASE_URL);
+        ref.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+                System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+                try {
+                    progressDialog.dismiss();
+                } catch (Exception e) {
 
+                }
+                onLoginSuccess();
+            }
+
+            @Override
+            public void onAuthenticationError(FirebaseError firebaseError) {
+                onLoginFailed();
+            }
+        });
 
 
         new android.os.Handler().postDelayed(
@@ -146,8 +130,9 @@ public class LoginActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
 
                 // TODO: Implement successful signup logic here
-                // By default we just finish the Activity and log them in automatically
                 this.finish();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         }
     }
