@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isAuthenticated;
     //private String userName;
     //private String userPassword;
-    private User[] userArray = new User[3];
+    private User[] userArray;
     private int userCounter = 0;
 
     @InjectView(R.id.input_email) EditText _emailText;
@@ -107,45 +107,19 @@ public class LoginActivity extends AppCompatActivity {
         email = _emailText.getText().toString();
         password = _passwordText.getText().toString();
 
-        // TODO: Implement your own authentication logic here.
-
-        //<editor-fold desc="Firebase"
-        /*
-        new Firebase(FIREBASE_URL)
-                .addValueEventListener(new ValueEventListener() {
-                   @Override
-                public void onDataChange(DataSnapshot snapshot){
-                       for(DataSnapshot userSnapshot : snapshot.getChildren()) {
-                           String userID = (String) userSnapshot.child("user_id").getValue();
-                           String userName = (String) userSnapshot.child("user_name").getValue();
-                           String userPassword = (String) userSnapshot.child("user_password").getValue();
-                           String userType = (String) userSnapshot.child("user_type").getValue();
-                           User user = new User(userID, userName, userPassword, userType);
-                           if(userID.equals(email) && userPassword.equals(password)){
-                               isAuthenticated = true;
-                               System.out.println(isAuthenticated);
-                           } else {
-                               isAuthenticated = false;
-                               System.out.println(isAuthenticated);
-                           }
-                       }
-                   }
-
-                public void onCancelled(FirebaseError firebaseError){
-
-                   }
-                });
-                */
-        //</editor-fold>
 
         for(int i = 0; i < userCounter; i++){
             if(userArray[i].getUserName().equals(this.email) && userArray[i].getUserPassword().equals(this.password)){
                 isAuthenticated = true;
                 System.out.println(isAuthenticated);
+                onLoginSuccess();
                 return;
             } else {
                 isAuthenticated = false;
                 System.out.println(isAuthenticated);
+                if(i == userCounter){
+                    onLoginFailed();
+                }
             }
         }
 
@@ -187,6 +161,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
         finish();
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void onLoginFailed() {
