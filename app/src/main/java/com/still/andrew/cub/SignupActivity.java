@@ -19,8 +19,9 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class SignupActivity extends AppCompatActivity {
+
     private static final String TAG = "SignupActivity";
-    private final String FIREBASE_URL = "https://glaring-heat-9011.firebaseio.com";
+    private static final String FIREBASE_URL = "https://glaring-heat-9011.firebaseio.com";
 
     @InjectView(R.id.input_name) EditText _nameText;
     @InjectView(R.id.input_email) EditText _emailText;
