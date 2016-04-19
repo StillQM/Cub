@@ -31,7 +31,7 @@ public class DiningAreaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_building);
+        setContentView(R.layout.activity_dining_area);
 
 
 
@@ -44,11 +44,11 @@ public class DiningAreaActivity extends AppCompatActivity {
 
         final String selectedDiningAreaName = getPassedData(savedInstanceState);
 
-        final TextView buildingAreaView = (TextView) findViewById(R.id.dining_area_location);
+        final TextView diningAreaView = (TextView) findViewById(R.id.dining_area_location);
 
 
         //<editor-fold desc="Firebase">
-        firebaseURL = ("https://glaring-heat-9011.firebaseio.com/dining_area" );
+        firebaseURL = ("https://glaring-heat-9011.firebaseio.com/dining_area");
 
         new Firebase(firebaseURL)
                 .addValueEventListener(new ValueEventListener() {
@@ -56,15 +56,6 @@ public class DiningAreaActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot snapshot) {
                         System.out.println(snapshot.getValue());
                         for (DataSnapshot diningAreaSnapshot : snapshot.getChildren()) {
-                            /*
-                            buildingName = (String) buildingSnapshot.child("building_name").getValue();
-                            String buildingID = (String) buildingSnapshot.child("building_id").getValue();
-                            String buildingCoordinates = (String) buildingSnapshot.child("building_coordinates").getValue();
-                            convertLatLng(buildingCoordinates);
-                            String buildingArea = (String) buildingSnapshot.child("building_area").getValue();
-                            building = new Building(buildingArea, buildingCoordinates, buildingID, buildingName);
-                            System.out.println(building.toString());
-                            */
                             diningAreaName = (String) diningAreaSnapshot.child("dining_area_name").getValue();
                             String diningAreaID = (String) diningAreaSnapshot.child("dining_area_id").getValue();
                             String diningAreaCoordinates = (String) diningAreaSnapshot.child("dining_area_coordinates").getValue();
@@ -74,7 +65,7 @@ public class DiningAreaActivity extends AppCompatActivity {
                             System.out.println(diningArea.toString());
                             if (diningArea.getDiningAreaName().equals(selectedDiningAreaName)) {
                                 getSupportActionBar().setTitle(diningArea.getDiningAreaName());
-                                buildingAreaView.setText(diningArea.getDiningAreaLocation());
+                                diningAreaView.setText(diningArea.getDiningAreaLocation());
                                 return;
                             }
                         }
@@ -97,9 +88,9 @@ public class DiningAreaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DiningAreaActivity.this, MapsActivity.class);
                 Bundle args = new Bundle();
-                args.putParcelable("diningAreaCoordinates", diningAreaCoordinates);
+                args.putParcelable("locationCoordinates", diningAreaCoordinates);
                 intent.putExtra("bundle", args);
-                intent.putExtra("diningAreaName", diningAreaName);
+                intent.putExtra("locationName", diningAreaName);
                 startActivity(intent);
             }
         });

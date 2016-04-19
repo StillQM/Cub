@@ -13,8 +13,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    LatLng buildingCoordinates;
-    String buildingName;
+    LatLng locationCoordinates;
+    String locationName;
 
 
     @Override
@@ -26,16 +26,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         Bundle bundle = getIntent().getParcelableExtra("bundle");
-        buildingCoordinates = bundle.getParcelable("buildingCoordinates");
-        buildingName = getIntent().getStringExtra("buildingName");
+        locationCoordinates = bundle.getParcelable("locationCoordinates");
+        locationName = getIntent().getStringExtra("locationName");
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.addMarker(new MarkerOptions().position(buildingCoordinates).title(buildingName));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(buildingCoordinates));
-        moveToCurrentLocation(buildingCoordinates);
+        mMap.addMarker(new MarkerOptions().position(locationCoordinates).title(locationName));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationCoordinates));
+        moveToCurrentLocation(locationCoordinates);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(true);

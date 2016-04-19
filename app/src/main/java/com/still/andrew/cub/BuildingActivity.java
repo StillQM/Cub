@@ -92,9 +92,9 @@ public class BuildingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BuildingActivity.this, MapsActivity.class);
                 Bundle args = new Bundle();
-                args.putParcelable("buildingCoordinates", buildingCoordinates);
+                args.putParcelable("locationCoordinates", buildingCoordinates);
                 intent.putExtra("bundle", args);
-                intent.putExtra("buildingName", buildingName);
+                intent.putExtra("locationName", buildingName);
                 startActivity(intent);
             }
         });

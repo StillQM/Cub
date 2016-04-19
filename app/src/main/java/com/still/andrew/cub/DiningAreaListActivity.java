@@ -77,7 +77,7 @@ public class DiningAreaListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFromList = (String) listView.getItemAtPosition(position);
                 System.out.println(selectedFromList);
-                Intent intent = new Intent(DiningAreaListActivity.this, BuildingActivity.class);
+                Intent intent = new Intent(DiningAreaListActivity.this, DiningAreaActivity.class);
                 //intent.putExtra("ITEM_ID", String.valueOf(id + 1));
                 intent.putExtra("selectedDiningAreaName", selectedFromList);
                 startActivity(intent);
