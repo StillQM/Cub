@@ -66,22 +66,24 @@ public class MainActivity extends AppCompatActivity {
 
         //<editor-fold desc="Spinner">
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
-        ArrayAdapter<String>spinnerAdapter;
-        List<String> spinnerList;
-
-        spinnerList = new ArrayList<String>();
-        spinnerList.add("Events");
-        spinnerList.add("Buildings");
-        spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, spinnerList);
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinner_array, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
-
+        spinner.setSelection(0);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spinner.getSelectedItem().toString() == "Buildings") {
+                System.out.println(spinner.getSelectedItem().toString());
+                if (spinner.getSelectedItem().toString().equals("Buildings")) {
                     Intent intent = new Intent(MainActivity.this, BuildingListActivity.class);
                     startActivity(intent);
+                    System.out.println("matched");
+                }
+                if (spinner.getSelectedItem().toString().equals("Dining Areas")) {
+                    Intent intent = new Intent(MainActivity.this, DiningAreaListActivity.class);
+                    finish();
+                    startActivity(intent);
+
                 }
                 if (spinner.getSelectedItem().toString() == "Events") {
 

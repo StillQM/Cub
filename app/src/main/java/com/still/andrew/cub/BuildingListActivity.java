@@ -40,6 +40,39 @@ public class BuildingListActivity extends AppCompatActivity {
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
 
+        //<editor-fold desc="Spinner">
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinner_array, android.R.layout.simple_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setSelection(1);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(spinner.getSelectedItem().toString());
+                if (spinner.getSelectedItem().toString().equals("Buildings")) {
+
+                }
+                if (spinner.getSelectedItem().toString().equals("Dining Areas")) {
+                    Intent intent = new Intent(BuildingListActivity.this, DiningAreaListActivity.class);
+                    finish();
+                    startActivity(intent);
+
+                }
+                if (spinner.getSelectedItem().toString().equals("Events")) {
+                    Intent intent = new Intent(BuildingListActivity.this, MainActivity.class);
+                    finish();
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        //</editor-fold>
+
         //<editor-fold desc="Listview and click listener">
         //Get ListView object
         final ListView listView = (ListView) findViewById(R.id.listView);

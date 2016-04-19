@@ -26,4 +26,6 @@
         completions."
     </string>
     <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_dining_area_list">DiningAreaListActivity</string>
+    <string name="title_activity_dining_area">DiningAreaActivity</string>
 </resources>
