@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 if (spinner.getSelectedItem().toString().equals("Schedule")) {
                     Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
                     startActivity(intent);
+
                 }
             }
 

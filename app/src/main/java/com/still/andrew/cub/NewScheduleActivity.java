@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -34,7 +35,7 @@ public class NewScheduleActivity extends AppCompatActivity {
     Button addButton;
     String selected;
     String className;
-    EditText classNameEditText;
+    TextInputLayout classNameEditText;
 
 
     @Override
@@ -47,8 +48,8 @@ public class NewScheduleActivity extends AppCompatActivity {
         selectedBuilding = (TextView) findViewById(R.id.locationText);
 
         //<editor-fold desc="Class Name Edit Text"
-        classNameEditText = (EditText) findViewById(R.id.classInput);
-        className = classNameEditText.getText().toString();
+        classNameEditText = (TextInputLayout) findViewById(R.id.view);
+        className = classNameEditText.getEditText().getText().toString();
         //</editor-fold>
 
         //<editor-fold desc="Listview and click listener">
@@ -150,7 +151,10 @@ public class NewScheduleActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                className = classNameEditText.getEditText().getText().toString();
+                System.out.println(className);
                 addClassToList(selected, className);
+                finish();
             }
         });
         //</editor-fold>
@@ -160,36 +164,15 @@ public class NewScheduleActivity extends AppCompatActivity {
     public void addClassToList(String selectedBuilding, String className){
         final String firebaseGlobalRef = "https://glaring-heat-9011.firebaseio.com";
         final Firebase globalRef = new Firebase(firebaseGlobalRef);
+        Firebase.setAndroidContext(this);
         final AuthData currentUser = globalRef.getAuth();
         final String currentUserID = currentUser.getUid();
         final String firebaseScheduleRef = "https://glaring-heat-9011.firebaseio.com/user_schedule/" + currentUserID;
         final Firebase ref = new Firebase(firebaseScheduleRef);
-        ref.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        ScheduleItem newScheduleItem = new ScheduleItem(selectedBuilding, className);
+        ref.push().setValue(newScheduleItem);
+        //final Firebase secondRef = ref.child(className);
+        //secondRef.setValue(newScheduleItem);
     }
 
 }
