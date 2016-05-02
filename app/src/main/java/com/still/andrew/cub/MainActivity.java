@@ -2,6 +2,8 @@ package com.still.andrew.cub;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,12 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -40,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    Bitmap eventPhoto;
+    ArrayList photoArray;
 
     EditText eventSearch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
+
+        photoArray = new ArrayList();
 
         //<editor-fold desc="Listview with click listener">
         final ListView listView = (ListView) findViewById(R.id.listView);
@@ -66,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         //<editor-fold desc="Spinner">
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_nav);
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinner_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinner_array, R.layout.spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
         spinner.setSelection(0);
@@ -88,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
                 if (spinner.getSelectedItem().toString() == "Events") {
 
                 }
+                if (spinner.getSelectedItem().toString().equals("Schedule")) {
+                    Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
+                    startActivity(intent);
+                }
             }
 
             @Override
@@ -101,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
         //Create new adapter
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
-
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.my_list, R.id.Itemname);
+        final ArrayAdapter<Bitmap> adapter2 = new ArrayAdapter<>(this, R.layout.my_list, R.id.icon);
 
         //Assign adapter
         listView.setAdapter(adapter);
@@ -139,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         adapter.add((String) dataSnapshot.child("eventName").getValue());
+                        eventPhoto = base64ToBitmap(dataSnapshot.child("eventPhoto").getValue().toString());
+                        //adapter2.add((Bitmap)eventPhoto);
+                        photoArray.add(eventPhoto);
 
                     }
 
@@ -150,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onChildRemoved(DataSnapshot dataSnapshot) {
                         adapter.remove((String) dataSnapshot.child("eventName").getValue());
+                        adapter2.remove((Bitmap) dataSnapshot.child("eventPhoto").getValue());
                     }
 
                     @Override
@@ -176,11 +193,12 @@ public class MainActivity extends AppCompatActivity {
         //</editor-fold>
 
 
-
-
-
-
-
     }
+
+    public Bitmap base64ToBitmap(String b64) {
+        byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+    }
+
 
 }

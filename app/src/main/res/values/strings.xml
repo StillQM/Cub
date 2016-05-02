@@ -28,4 +28,6 @@
     <string name="title_activity_signup">SignupActivity</string>
     <string name="title_activity_dining_area_list">DiningAreaListActivity</string>
     <string name="title_activity_dining_area">DiningAreaActivity</string>
+    <string name="title_activity_schedule">ScheduleActivity</string>
+    <string name="title_activity_new_schedule">NewScheduleActivity</string>
 </resources>

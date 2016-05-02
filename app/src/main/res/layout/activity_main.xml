@@ -25,10 +25,30 @@
             android:id="@+id/spinner_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:gravity="right"
+            android:foregroundGravity="right" />
     </android.support.v7.widget.Toolbar>
     </LinearLayout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="{relativePackage}.${activityClass}" >
+        <EditText android:id="@+id/eventSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search events..."
+            android:inputType="textVisiblePassword" />
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_below="@+id/eventSearch" />
+    </RelativeLayout>
+
+<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -50,6 +70,6 @@
         android:layout_weight="1">
     </ListView>
 
-</LinearLayout>
+</LinearLayout> !-->
 </LinearLayout>
 

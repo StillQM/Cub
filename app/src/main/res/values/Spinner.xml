@@ -4,5 +4,6 @@
         <item>Events</item>
         <item>Buildings</item>
         <item>Dining Areas</item>
+        <item>Schedule</item>
     </string-array>
 </resources>
